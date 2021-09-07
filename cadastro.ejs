@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <title>Cadastro</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body id="bodyCadastro" class="container-fluid">
+    <div id="header" class="row menu">
+        <div class="col-md-3">
+            <img src="./img/Elos.png" class="img-fluid w-50" alt="">
+        </div>
+        <div class="col-md-6 p-5">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Pesquise um livro...">
+                <div class="input-group-append">
+                    <button class="btn" id="btnTopo" type="button">Pesquisar</button>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-3 p-5">
+            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                <div class="btn-group" role="group">
+                    <button id="btnGroupDrop1" type="button" class="btn dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Livros
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                        <a class="dropdown-item" href="/cadastro">Cadastrar livro</a>
+                        <a class="dropdown-item" href="/listarLivros">Consultar livros</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+        <div class="col-12">
+        <h1 class="mt-3 text-center display-3">Ello Livros</h1>
+        <h1 class="mt-3 text-center">Editar Livros</h1>
+
+    <div class="row">
+        <div class="col-md-8 text-center offset-2">
+
+            <form action="/cadastro" method="POST">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default"
+                            style="width: 6vw !important;">Título</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Default" name="titulo" id="titulo"
+                        aria-describedby="inputGroup-sizing-default" required>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default"
+                            style="width: 6vw !important;">Autor</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Default"
+                        aria-describedby="inputGroup-sizing-default" name="autor" id="autor" required>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default"
+                            style="width: 6vw !important;">Série</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Default"
+                        aria-describedby="inputGroup-sizing-default" name="serie" id="serie">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default"
+                            style="width: 6vw !important;">Edição</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Default"
+                        aria-describedby="inputGroup-sizing-default" name="edicao" id="edicao" required>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default"
+                            style="width: 6vw !important;">Gênero</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Default"
+                        aria-describedby="inputGroup-sizing-default" name="genero" id="genero" required>
+                </div>
+                <button id="cadastro" class="btn mt-3" disabled>Cadastrar</button>
+            </form>
+
+        </div>
+
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script>
+        var titulo_boolean = 0, autor_boolean = 0, serie_boolean = 0, edicao_boolean = 0, genero_boolean = 0;
+        $('#titulo').blur(function (e) {
+            var titulo = $('#titulo').val();
+            if (titulo.length < 3) {
+                titulo_boolean = false;
+                document.getElementById('titulo').classList.remove("is-valid");
+                document.getElementById('titulo').classList.add("is-invalid");
+            } else {
+                titulo_boolean = true;
+                document.getElementById('titulo').classList.remove("is-invalid");
+                document.getElementById('titulo').classList.add("is-valid");
+            }
+        });
+        $('#autor').blur(function (e) {
+            var autor = $('#autor').val();
+            if (autor.length < 5) {
+                autor_boolean = false;
+                document.getElementById('autor').classList.remove("is-valid");
+                document.getElementById('autor').classList.add("is-invalid");
+            } else {
+                autor_boolean = true;
+                document.getElementById('autor').classList.remove("is-invalid");
+                document.getElementById('autor').classList.add("is-valid");
+            }
+        });
+        $('#serie').blur(function (e) {
+            serie_boolean = true;
+            document.getElementById('serie').classList.remove("is-invalid");
+            document.getElementById('serie').classList.add("is-valid");
+        });
+        $('#edicao').blur(function (e) {
+            var edicao = $('#edicao').val();
+            if (edicao == '') {
+                edicao_boolean = false;
+                document.getElementById('edicao').classList.remove("is-valid");
+                document.getElementById('edicao').classList.add("is-invalid");
+            } else {
+                edicao_boolean = true;
+                document.getElementById('edicao').classList.remove("is-invalid");
+                document.getElementById('edicao').classList.add("is-valid");
+            }
+        });
+        $('#genero').blur(function (e) {
+            var genero = $('#genero').val();
+            if (genero.length < 4) {
+                genero_boolean = false;
+                document.getElementById('genero').classList.remove("is-valid");
+                document.getElementById('genero').classList.add("is-invalid");
+            } else {
+                genero_boolean = true;
+                document.getElementById('genero').classList.remove("is-invalid");
+                document.getElementById('genero').classList.add("is-valid");
+            }
+        });
+        var intervalId = window.setInterval(function () {
+            if (titulo_boolean && autor_boolean && serie_boolean && edicao_boolean && genero_boolean) {
+                $('#cadastro').attr("disabled", false);
+            } else {
+                $("#cadastro").attr("disabled", true);
+            }
+        }, 2000);
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

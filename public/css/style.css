@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#header{
+    background-color: #005DA6;
+}
+#topoDaLista{
+    background-color: #379ACC;
+}
+#btnGroupDrop1{
+    background-color: #FEE08B;
+}
+#btnTopo{
+    background-color: #FEE08B;
+}
+#btnCadastrarLivro{
+    background-color: #ABDDA4;
+}
+
+/* alterar cores dos Botões da pagina de Editar */
+#botaoEditar{
+    background-color: #379ACC;
+}
+#inputGroup-sizing-default{
+    background-color: #ABDDA4;
+}
+/* alterar cores dos Botões da pagina de Cadastro */
+#cadastro{
+    background-color: #005DA6;
+    color: white;
+}
+#bodyCadastro{
+    height: 110vh;
+}
